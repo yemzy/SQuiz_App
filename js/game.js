@@ -12,12 +12,14 @@ let questionCounter = 0;
 let availableQuesions = [];
 
 let questions = [];
+var MAX_QUESTIONS;
 
-fetch("questions.json")
+fetch("https://yemzy.github.io/SQuiz_App/questions.json")
   .then(res => {
     return res.json();
   })
   .then(loadedQuestions => {
+    MAX_QUESTIONS = loadedQuestions.length
     console.log(loadedQuestions);
     questions=loadedQuestions;
     startGame();
@@ -27,8 +29,7 @@ fetch("questions.json")
   });
 
 //CONSTANTS
-const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 3;
+const CORRECT_BONUS = 1;
 
 startGame = () => {
   questionCounter = 0;
