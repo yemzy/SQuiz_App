@@ -14,6 +14,9 @@ let availableQuesions = [];
 let questions = [];
 var MAX_QUESTIONS;
 
+var QUIZ_TIME = 27000;
+
+
 fetch("https://yemzy.github.io/SQuiz_App/questions.json")
   .then(res => {
     return res.json();
@@ -38,9 +41,22 @@ startGame = () => {
   getNewQuestion();
   game.classList.remove("hidden");
   loader.classList.add("hidden");
+  var time = 25;
+  setInterval(function(){
+    document.getElementById('timer').innerHTML = time
+
+
+    if(time > 0){}
+      time--
+      if (time < 10) {
+        document.getElementById('timer').style.color = "red";
+      }
+    
+  }, 1000)
+  
 };
 
-getNewQuestion = () => {
+setInterval( getNewQuestion = () => {
   if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
     localStorage.setItem("mostRecentScore", score);
     //go to the end page
@@ -62,7 +78,9 @@ getNewQuestion = () => {
 
   availableQuesions.splice(questionIndex, 1);
   acceptingAnswers = true;
-};
+
+ 
+}, QUIZ_TIME)
 
 choices.forEach(choice => {
   choice.addEventListener("click", e => {
@@ -78,13 +96,12 @@ choices.forEach(choice => {
     if (classToApply === "correct") {
       incrementScore(CORRECT_BONUS);
     }
-
+    getNewQuestion();
     selectedChoice.parentElement.classList.add(classToApply);
 
     setTimeout(() => {
       selectedChoice.parentElement.classList.remove(classToApply);
-      getNewQuestion();
-    }, 1000);
+    }, 500);
   });
 });
 
