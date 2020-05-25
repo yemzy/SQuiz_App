@@ -1,8 +1,9 @@
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    document.getElementById('')
+    console.log(user)
+    document.getElementById('ename').innerHTML = user.email
   } else {
-    windows.location = 'index.html'
+    window.location = 'index.html'
   }
 });
 

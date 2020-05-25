@@ -2,6 +2,15 @@ const username = document.getElementById("username");
 const saveScoreBtn = document.getElementById("saveScoreBtn");
 const finalScore = document.getElementById("finalScore");
 const mostRecentScore = localStorage.getItem("mostRecentScore");
+const logout = document.getElementById('logout')
+
+logout.addEventListener('click', ()=>{
+  firebase.auth().signOut().then(function () {
+    window.location= 'index.html'
+  }).catch(function (error) {
+    // An error happened.
+  });
+})
 
 const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
