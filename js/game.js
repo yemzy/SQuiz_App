@@ -35,8 +35,6 @@ function loadArr(data) {
     },
   )
 
-  console.log(questions.length)
-  console.log(questions)
 
 }
 

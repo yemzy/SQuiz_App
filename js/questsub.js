@@ -26,7 +26,8 @@ submit.addEventListener('click', function(e){
     answer: answer,
   })
     .then(function () {
-      console.log("Document successfully written!");
+      document.getElementById('questsub').innerHTML = 'saved'
+      location.reload()
     })
     .catch(function (error) {
       console.error("Error writing document: ", error);
