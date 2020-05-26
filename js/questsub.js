@@ -21,7 +21,7 @@ submit.addEventListener('click', function(e){
     question: question,
     option1: option1,
     option2: option2,
-    option4: option3,
+    option3: option3,
     option4: option4,
     answer: answer,
   })
@@ -33,6 +33,3 @@ submit.addEventListener('click', function(e){
     });
 })
 
-db.collection('general').get().then(function(){
-
-}).catch()
