@@ -22,19 +22,19 @@
 
       <div class="row">
         <div class="input-field col s12">
-          <input id="disabled" type="text" class="validate">
-          <label for="disabled">Uploader</label>
+          <input id="uploader" type="text" class="validate">
+          <label for="uploader">Uploader</label>
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s12">
-          <select>
+          <select id="courses">
             <option value="" disabled selected>Choose your course</option>
-            <option value="1">General</option>
-            <option value="2">GEG 113</option>
-            <option value="3">GEG 115</option>
-            <option value="3">GEG 117</option>
+            <option value="general">General</option>
+            <option value="geg113">GEG 113</option>
+            <option value="geg115">GEG 115</option>
+            <option value="geg117">GEG 117</option>
           </select>
           <label>Courses</label>
         </div>
@@ -42,8 +42,8 @@
 
       <div class="row">
         <div class="input-field col s12">
-          <input id="disabled" type="text" class="validate">
-          <label for="disabled">Questions</label>
+          <input id="question" type="text" class="validate">
+          <label for="question">Questions</label>
         </div>
       </div>
 
@@ -52,13 +52,13 @@
       <div class="row">
 
         <div class="input-field col s6">
-          <input id="disabled" type="text" class="validate">
-          <label for="disabled">Option1</label>
+          <input id="option1" type="text" class="validate">
+          <label for="option1">Option1</label>
         </div>
 
         <div class="input-field col s6">
-          <input id="disabled" type="text" class="validate">
-          <label for="disabled">Option2</label>
+          <input id="option2" type="text" class="validate">
+          <label for="option2">Option2</label>
         </div>
       </div>
 
@@ -67,25 +67,31 @@
       <div class="row">
 
         <div class="input-field col s6">
-          <input id="disabled" type="text" class="validate">
-          <label for="disabled">Option3</label>
+          <input id="option3" type="text" class="validate">
+          <label for="option3">Option3</label>
         </div>
 
         <div class="input-field col s6">
-          <input id="disabled" type="text" class="validate">
-          <label for="disabled">Option4</label>
+          <input id="option4" type="text" class="validate">
+          <label for="option4">Option4</label>
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s12">
-          <input id="disabled" type="text" class="validate">
-          <label for="disabled">Answer</label>
+          <select id="answer">
+            <option value="" disabled selected>Select Answer</option>
+            <option value="1">option 1</option>
+            <option value="2">option 2</option>
+            <option value="3">option 3</option>
+            <option value="3">option 4</option>
+          </select>
+          <label>Answer</label>
         </div>
       </div>
 
       <div class="container center">
-        <a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>button</a>
+        <a class="waves-effect waves-light btn" id='questsub'><i class="material-icons right">cloud</i>submit</a>
       </div>
 
 
@@ -100,6 +106,15 @@
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script>  M.AutoInit();</script>
+      <!--The core Firebase JS SDK is always required and must be listed first-->
+      <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+      <!--TODO: Add SDKs for Firebase products that you want to use
+          https://firebase.google.com/docs/web/setup#available-libraries -->
+      <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
+      <script src="./js/fireconfig.js"></script>
+  <script src="./js/questsub.js"></script>
 </body>
 
 </html>

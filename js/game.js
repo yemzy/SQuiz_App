@@ -11,20 +11,50 @@ let score = 0;
 let questionCounter = 0;
 let availableQuesions = [];
 
-let questions = [];
+let questions = [
+  {
+    "question": " 80 students know English, 60 know French, 50 know German, 30 known Enlgish and French, 20 know French and German, 15 know English and German and 10 students know all the three languages.How many students know at least one language ",
+    "choice1": "2",
+    "choice2": "8",
+    "choice3": "3",
+    "choice4": "16",
+    "answer": 2
+  },
+  {
+    "question": " How do you write 'Hello World' in an alert box?",
+    "choice1": "msgBox('Hello World');",
+    "choice2": "alertBox('Hello World');",
+    "choice3": "msg('Hello World');",
+    "choice4": "alert('Hello World');",
+    "answer": 4
+  },
+  {
+    "question": " The number of elements in the Power set P(S) of the set S = [ [ Φ] , 1, [ 2, 3 ]] is",
+    "choice1": "2",
+    "choice2": "8",
+    "choice3": "3",
+    "choice4": "16",
+    "answer": 2
+  },
+
+];
+
+console.log(questions.length)
 var MAX_QUESTIONS;
 
 var QUIZ_TIME = 27000;
 
 
-fetch("https://yemzy.github.io/SQuiz_App/questions.json")
+
+
+fetch('questions.json')
   .then(res => {
     return res.json();
   })
   .then(loadedQuestions => {
     MAX_QUESTIONS = loadedQuestions.length
     console.log(loadedQuestions);
-    questions=loadedQuestions;
+    // questions=loadedQuestions;
     startGame();
   })
   .catch(err => {
