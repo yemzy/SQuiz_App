@@ -11,7 +11,6 @@ submit.addEventListener('click', function(e){
   console.log(password)
 
   firebase.auth().signInWithEmailAndPassword(email, password).then(()=>{
-    alert('signed In')
     window.location = "startpage.html"
   }).catch(function (error) {
     console.log(error.code, error.message)
